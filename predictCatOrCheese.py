@@ -5,14 +5,14 @@ import numpy as np
 import tempfile
 import shutil
 import sys
-
+import os
 from modelCatOrCheese import makeModel
 
 IMAGE_DIM = 375
 batch_size = 32
 classes=['cat', 'cheese']
 
-savedModel = "models/topdog/my_model.h5"
+savedModel = os.path.dirname(os.path.abspath(__file__)) + "/models/topdog/my_model.h5"
 
 def normalizeImage(image_dir):
 	#Normalize RGB
