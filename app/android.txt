@@ -1,0 +1,3 @@
+title=CatOrCheese
+author=Craig Carlson
+orientation=portait
