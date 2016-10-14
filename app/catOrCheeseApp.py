@@ -1,6 +1,6 @@
 __version__ = '0.1'
 
-
+import org.renpy.android.PythonActivity;
 from kivy.app import App
 from os.path import exists
 from kivy.uix.widget import Widget
@@ -9,7 +9,7 @@ from kivy.uix.button import Button
 from kivy.clock import Clock
 #Access java classes from python
 from jnius import autoclass, cast
-from android import activity, mActivity
+#from android import activity, mActivity
 #Scatter is used to zoom, rotate and other wise interact with widgets (Image in this case)
 from kivy.uix.scatter import Scatter
 from kivy.properties import StringProperty
@@ -27,6 +27,7 @@ class Picture(Scatter):
 class CatOrCheeseApp(App):
 	def build(self):
 		self.index = 0
+		activity = autoclass('org.renpy.android.PythonActivity')
 		activity.bind(on_activity_result=self.on_activity_result)
 
 	def get_img_filename(self):
@@ -43,7 +44,8 @@ class CatOrCheeseApp(App):
 		self.uri = Uri.parse('file://' + self.last_fn)
 		self.uri = cast('android.os.Parcelable', self.uri)
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, self.uri)
-		mActivity.startActivityForResult(intent,123)
+		currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
+		currentActivity.startActivityForResult(intent,123)
 
 	def on_activity_result(self, requestCode, resultCode, intent):
 		if requestCode == 0x123:
