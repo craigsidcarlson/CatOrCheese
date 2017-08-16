@@ -1,0 +1,10 @@
+.droparea {
+    width: 200px;
+    height: 200px;
+    border-style: dashed;
+    border-width: 3px;
+    border-color: grey;
+    text-align: center;
+    line-height: 200px;
+    margin: auto;
+}

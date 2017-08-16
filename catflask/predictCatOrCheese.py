@@ -34,10 +34,10 @@ def predict(norm_image_data):
 	return prediction
 
 
-
-if __name__ == '__main__':
+#Pip install keras and tensorflow
+def catOrCheese(image):
 	#Get file to analyze and predict
-	image = sys.argv[1]
+	#image = sys.argv[1]
 
 	#Create tmp dir structure needed for >=1 images(Can analyze n images)
 	highlevel = tempfile.mkdtemp()
@@ -56,4 +56,4 @@ if __name__ == '__main__':
 	shutil.rmtree(highlevel)
 
 	#Strut your stuff
-	print(classes[np.argmax(prediction)])
+	return classes[np.argmax(prediction)]

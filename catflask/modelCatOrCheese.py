@@ -8,7 +8,6 @@ from keras.layers.pooling import MaxPooling2D
 from keras.optimizers import SGD, Adam, RMSprop
 from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
-from keras.utils.visualize_util import plot
 import os
 import sys
 #Here are all of the subtyes
